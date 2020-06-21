@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'accounts.apps.AccountsConfig',
     'boards.apps.BoardsConfig',
+    'echarts_example.apps.EchartsExampleConfig',
 ]
 
 MIDDLEWARE = [
