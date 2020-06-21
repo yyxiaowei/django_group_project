@@ -1,0 +1,52 @@
+{% load form_tags widget_tweaks %}
+
+<!-- 针对表单提交没通过时的错误消息显示 -->
+{% if form.non_field_errors %}
+  <div class="alert alert-danger" role="alert">
+    {% for error in form.non_field_errors %}
+      <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+    {% endfor %}
+  </div>
+{% endif %}
+{% for field in form %}
+  <div class="form-group">
+    {{ field.label_tag }}
+    <!-- 使用自定义templatetags input_class -->
+    {% render_field field class=field|input_class %}
+    {% for error in field.errors %}
+        <div class="invalid-feedback">
+          {{ error }}
+        </div>
+    {% endfor %}
+    <!-- render_field 标签的其它用法 -->
+          <!-- {% render_field form.subject class="form-control" %}
+          {% render_field form.message class="form-control" placeholder=form.message.label %}
+          {% render_field field class="form-control" placeholder="Write a message!" %}
+          {% render_field field style="font-size: 20px" %} -->
+    <!-- 
+      没用自定义templatetags前的代码 当表单所有filed填选后，点击提交，验证如果没有通过，提示错误消息但是所有表单
+      样式全部显示为绿色(代表已通过)
+    -->
+    <!-- {% if form.is_bound %}
+      {% if field.errors %}
+        
+        {% render_field field class="form-control is-invalid" autocomplete="off" %}
+        {% for error in field.errors %}
+          <div class="invalid-feedback">
+            {{ error }}
+          </div>
+        {% endfor %}
+      {% else %}
+        {% render_field field class="form-control is-valid" autocomplete="off" %}
+      {% endif %}
+    {% else %}
+      {% render_field field class="form-control" %}
+    {% endif %} -->
+    
+    {% if field.help_text %}
+      <small class="form-text text-muted">
+        {{ field.help_text }}
+      </small>
+    {% endif %}
+  </div>
+{% endfor %}

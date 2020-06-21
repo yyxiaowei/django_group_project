@@ -1,7 +1,7 @@
 
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
@@ -11,6 +11,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django.contrib.humanize',
+    
+    'widget_tweaks',
+    'accounts.apps.AccountsConfig',
+    'boards.apps.BoardsConfig',
 ]
 
 MIDDLEWARE = [
@@ -28,7 +34,7 @@ ROOT_URLCONF = 'group_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,3 +75,11 @@ USE_L10N = True
 USE_TZ = False
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+LOGOUT_REDIRECT_URL = 'boards:home'
+LOGIN_REDIRECT_URL = 'boards:home'
+LOGIN_URL = 'accounts:login'
