@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load gravatar static %}
+{% block navbar %}
+<li class="nav-item">
+  <a class="nav-link active" href="{% url 'boards:home' %}">Boards</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="#">Echarts</a>
+</li>
 
+{% endblock %}
 {% block title %}{{ topic.subject }}{% endblock %}
 
 {% block breadcrumb %}

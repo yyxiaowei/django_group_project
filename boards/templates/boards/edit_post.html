@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Edit post{% endblock %}
+{% block navbar %}
+<li class="nav-item">
+  <a class="nav-link active" href="{% url 'boards:home' %}">Boards</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="#">Echarts</a>
+</li>
 
+{% endblock %}
 {% block stylesheet %}
   <link rel="stylesheet" href="{% static 'css/simplemde.min.css' %}">
 {% endblock %}
