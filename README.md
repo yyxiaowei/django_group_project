@@ -1,5 +1,5 @@
 # django_group_project
-boards项目和一些pyecharts实例
+boards项目和一些pyecharts实例 [在线运行查看](http://120.78.193.25/boards/) 
 
 # Quick start
 
@@ -9,7 +9,7 @@ boards项目和一些pyecharts实例
 
     ```bash
     git clone git@github.com:yyxiaowei/django_group_project.git
-    cd django_local_library
+    cd django_group_project
     ```
 
     
@@ -18,6 +18,7 @@ boards项目和一些pyecharts实例
 
     ```bash
     python3 -m venv venv
+    . venv/bin/activate # 激活虚拟环境
     pip install -r requirements.txt
     python manage.py makemigrations
     python manage.py migrate
@@ -27,5 +28,5 @@ boards项目和一些pyecharts实例
 
 3. 打开浏览器窗口并输入 <http://127.0.0.1:8000/admin/>进入`Django`管理站点
 4. 添加生成一些测试数据
-5. 输入<http://127.0.0.1:8000/boards/>>在网页查看生成的数据
+5. 输入<http://127.0.0.1:8000/boards/>在网页查看生成的数据
 
